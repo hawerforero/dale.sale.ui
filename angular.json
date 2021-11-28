@@ -127,5 +127,8 @@
       }
     }
   },
-  "defaultProject": "daleSaleUI"
+  "defaultProject": "daleSaleUI",
+  "cli": {
+    "analytics": "fecd872f-c799-4df6-a3a7-d823482a1c33"
+  }
 }
