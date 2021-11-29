@@ -1,0 +1,37 @@
+<div class="section-sales">
+<h3>Listado de productos</h3>
+
+<p *ngIf="!productos"><em>Loading...</em></p>
+<div class="row">
+  <div class="col-md-offset-10 col-md-12">
+    <a class="btn btn-primary" [routerLink]="['/create']">Crear producto</a>&nbsp;
+  </div>
+</div>
+<br />
+<div class="row">
+  <div class="alert alert-danger" *ngIf="errorMsg">
+    {{errorMsg}}
+  </div>
+  <table class='table table-striped' *ngIf="productos">
+    <thead>
+      <tr>
+        <th>Id</th>
+        <th>Nombre</th>
+        <th>Valor</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let producto of productos">
+        <td>{{ producto.id }}</td>
+        <td>{{ producto.nombre }}</td>
+        <td>{{ producto.valor }}</td>
+        <td>
+          <a class="btn btn-warning" [routerLink]="['/producto-edit/', producto.id]">Editar</a>&nbsp;
+          <button class="btn btn-danger" (click)="deleteActivo(producto.id)">Eliminar</button>
+
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+</div>
