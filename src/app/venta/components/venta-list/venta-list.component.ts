@@ -47,7 +47,7 @@ export class VentaListComponent implements OnInit {
             showCancelButton: false,
             showCloseButton: false
           })
-          this.router.navigate(["/producto"]);
+          this.router.navigate(["/venta"]);
           this.getList();
         },
         error => {
