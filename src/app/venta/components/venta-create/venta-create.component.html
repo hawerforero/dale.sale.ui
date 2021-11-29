@@ -1,0 +1,52 @@
+<div class="section-sales">
+    <h4>Crear venta</h4>
+    <div class="alert alert-danger" *ngIf="errorMsg">
+        {{errorMsg}}
+    </div>
+    <form #formSale="ngForm" (ngSubmit)="onSubmit()" novalidate>
+
+        <div class="form-group">
+            <label>Cliente</label>
+            <select class="form-select" #clienteid="ngModel" name="clienteid" [(ngModel)]="ventaModel.clienteid" required>
+              <option value="default">Seleccione..</option>
+              <option *ngFor="let cliente of clientes" [value]="cliente.id">{{cliente.nombre }}</option>
+            </select>
+            <small class="text-danger" [class.d-none]="clienteid.valid || clienteid.untouched">Please choose a cliente</small>
+      
+        </div>
+        <div class="form-group">
+          <label>Producto</label>
+          <select class="form-select" #productoid="ngModel" name="productoid" [(ngModel)]="ventaModel.productoid" required (change)="changeProducto(ventaModel.productoid)">
+            <option value="default">Seleccione..</option>
+            <option *ngFor="let producto of productos" [value]="producto.id">{{producto.nombre }}</option>
+          </select>
+          <small class="text-danger" [class.d-none]="productoid.valid || productoid.untouched" >Please choose a producto</small>
+    
+      </div>
+
+      <div class="form-group">
+        <label>Valor unitario</label>
+        <input type="number" #valorunitario="ngModel" class="form-control" [class.is-invalid]="valorunitario.invalid && valorunitario.touched" name="valorunitario" [(ngModel)]="ventaModel.valorunitario" required disabled>
+        <small class="text-danger" [class.d-none]="valorunitario.valid || valorunitario.untouched">Valor unitario is required</small>
+  
+      </div>
+
+      <div class="form-group">
+        <label>Cantidad</label>
+        <input type="number" #cantidad="ngModel" class="form-control" [class.is-invalid]="cantidad.invalid && cantidad.touched" name="cantidad" [(ngModel)]="ventaModel.cantidad" required (change)="changeCantidad()">
+        <small class="text-danger" [class.d-none]="cantidad.valid || cantidad.untouched">Cantidad is required</small>
+      </div>
+
+      <div class="form-group">
+        <label>Valor total</label>
+        <input type="number" #valortotal="ngModel" class="form-control" [class.is-invalid]="valortotal.invalid && valortotal.touched" name="valortotal" [(ngModel)]="ventaModel.valortotal" required disabled>
+        <small class="text-danger" [class.d-none]="valortotal.valid || valortotal.untouched">Valor total is required</small>
+  
+      </div>
+        
+        <br>
+        <button class="btn btn-primary" [disabled]="formSale.form.invalid" type="submit">Guardar</button>
+    
+      </form>
+    
+</div>

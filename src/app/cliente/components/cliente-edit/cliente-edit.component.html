@@ -7,7 +7,7 @@
 
         <div class="form-group">
           <label>Cedula</label>
-          <input type="text" #valor="ngModel" class="form-control"  name="cedula" [(ngModel)]="modelo.cedula" required>
+          <input type="text" #cedula="ngModel" class="form-control"  name="cedula" [(ngModel)]="modelo.cedula" required>
           <small class="text-danger">Cedula is required</small>
        </div>
 
@@ -20,13 +20,13 @@
 
         <div class="form-group">
           <label>Apellido</label>
-          <input type="text" #nombre="ngModel" class="form-control"  name="apellido" [(ngModel)]="modelo.apellido" required>
+          <input type="text" #apellido="ngModel" class="form-control"  name="apellido" [(ngModel)]="modelo.apellido" required>
           <small class="text-danger" >Apellido is required</small>
         </div>
 
         <div class="form-group">
           <label>Telefono</label>
-          <input type="text" #nombre="ngModel" class="form-control"  name="telefono" [(ngModel)]="modelo.telefono" required>
+          <input type="text" #telefono="ngModel" class="form-control"  name="telefono" [(ngModel)]="modelo.telefono" required>
           <small class="text-danger" >Telefono is required</small>
         </div>
 

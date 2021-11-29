@@ -7,8 +7,8 @@
 
         <div class="form-group">
           <label>Cedula</label>
-          <input type="text" #valor="ngModel" class="form-control"  name="cedula" [(ngModel)]="modelo.cedula" required>
-          <small class="text-danger">Cedula is required</small>
+          <input type="text" #cedula="ngModel" class="form-control"  [class.is-invalid]="cedula.invalid && cedula.touched" name="cedula" [(ngModel)]="modelo.cedula" required>
+          <small class="text-danger" [class.d-none]="cedula.valid || cedula.untouched">Cedula is required</small>
        </div>
 
 
@@ -20,14 +20,14 @@
 
         <div class="form-group">
           <label>Apellido</label>
-          <input type="text" #nombre="ngModel" class="form-control"  name="apellido" [(ngModel)]="modelo.apellido" required>
-          <small class="text-danger" >Apellido is required</small>
+          <input type="text" #apellido="ngModel" class="form-control" [class.is-invalid]="apellido.invalid && apellido.touched" name="apellido" [(ngModel)]="modelo.apellido" required>
+          <small class="text-danger" [class.d-none]="apellido.valid || apellido.untouched">Apellido is required</small>
         </div>
 
         <div class="form-group">
           <label>Telefono</label>
-          <input type="text" #nombre="ngModel" class="form-control"  name="telefono" [(ngModel)]="modelo.telefono" required>
-          <small class="text-danger" >Telefono is required</small>
+          <input type="text" #telefono="ngModel" class="form-control"  [class.is-invalid]="telefono.invalid && telefono.touched" name="telefono" [(ngModel)]="modelo.telefono" required>
+          <small class="text-danger" [class.d-none]="telefono.valid || telefono.untouched">Telefono is required</small>
         </div>
 
 
