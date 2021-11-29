@@ -17,12 +17,20 @@ export class ProductoService {
 
   constructor(private http: HttpClient) { }
 
+  public getById(id: string) {
+    return this.http.get<any[]>(this.urlService.get + "/"+id);
+  }
+
   public getAll() {
     return this.http.get<any[]>(this.urlService.get);
   }
 
   public create(producto: Producto) {
     return this.http.post<any>(this.urlService.get, producto);
+  }
+
+  public update(producto: Producto) {
+    return this.http.put<any>(this.urlService.get, producto);
   }
 
 }

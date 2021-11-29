@@ -17,7 +17,7 @@
       <tr>
         <th>Id</th>
         <th>Nombre</th>
-        <th>Valor</th>
+        <th>Valor unitario</th>
       </tr>
     </thead>
     <tbody>
@@ -26,7 +26,7 @@
         <td>{{ producto.nombre }}</td>
         <td>{{ producto.valor }}</td>
         <td>
-          <a class="btn btn-warning" [routerLink]="['/producto-edit/', producto.id]">Editar</a>&nbsp;
+          <a class="btn btn-warning" [routerLink]="['/producto/', producto.id, 'edit']">Editar</a>&nbsp;
           <button class="btn btn-danger" (click)="deleteActivo(producto.id)">Eliminar</button>
 
         </td>

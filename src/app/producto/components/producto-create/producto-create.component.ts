@@ -44,7 +44,7 @@ export class ProductoCreateComponent implements OnInit {
             },
         error => {
           console.log("Error en base de datos");
-          this.errorMsg = "No es posible inertar el activo";
+          this.errorMsg = "No es posible inertar";
         }
       )
     

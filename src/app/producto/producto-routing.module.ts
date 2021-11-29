@@ -10,7 +10,7 @@ const routes: Routes = [
     component: ProductoListComponent,
   },
   {
-    path: ':id/editar',
+    path: ':id/edit',
     component: ProductoEditComponent,
   },
   {
