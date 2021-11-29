@@ -43,8 +43,7 @@ export class ProductoCreateComponent implements OnInit {
             this.router.navigate(["/producto"]);
             },
         error => {
-          console.log("Error en base de datos");
-          this.errorMsg = "No es posible inertar";
+          this.errorMsg = error.error;
         }
       )
     

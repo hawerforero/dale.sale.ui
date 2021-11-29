@@ -21,6 +21,10 @@ export class ProductoService {
     return this.http.get<any[]>(this.urlService.get + "/"+id);
   }
 
+  public delete(id: string) {
+    return this.http.delete<any>(this.urlService.get + "/"+id);
+  }
+
   public getAll() {
     return this.http.get<any[]>(this.urlService.get);
   }

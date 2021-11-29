@@ -27,7 +27,7 @@
         <td>{{ producto.valor }}</td>
         <td>
           <a class="btn btn-warning" [routerLink]="['/producto/', producto.id, 'edit']">Editar</a>&nbsp;
-          <button class="btn btn-danger" (click)="deleteActivo(producto.id)">Eliminar</button>
+          <button class="btn btn-danger" (click)="delete(producto.id)">Eliminar</button>
 
         </td>
       </tr>

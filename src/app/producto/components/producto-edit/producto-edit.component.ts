@@ -17,7 +17,7 @@ export class ProductoEditComponent implements OnInit {
 
   constructor(protected productoService: ProductoService,
               private activeRoute: ActivatedRoute,
-              public router: Router,) {
+              public router: Router) {
     this.model = new Producto({});
    }
 
@@ -39,10 +39,9 @@ export class ProductoEditComponent implements OnInit {
               showCloseButton: false
             })
             this.router.navigate(["/producto"]);
-            },
+          },
         error => {
-          console.log("Error en base de datos");
-          this.errorMsg = "No es posible inertar";
+          this.errorMsg = error.error;
         }
       )
   }

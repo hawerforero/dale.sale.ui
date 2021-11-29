@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductoService } from '../../services/producto.service';
+import Swal from 'sweetalert2';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-producto-list',
@@ -11,7 +13,8 @@ export class ProductoListComponent implements OnInit {
   productos;
   errorMsg = '';
 
-  constructor(protected productoService: ProductoService) {
+  constructor(protected productoService: ProductoService,
+              public router: Router) {
     this.productos = new Array<any>();
    }
 
@@ -31,9 +34,26 @@ export class ProductoListComponent implements OnInit {
     );
   }
 
-  deleteActivo(id:string) {
+  delete(id:string) {
+    console.log(id);
+    this.productoService.delete(id)
+      .subscribe(
+        response => {
+          Swal.fire({
+            title: '¡ Respuesta Exitosa ! ',
+            icon: 'success',
+            text: response.message,
+            confirmButtonText: 'Aceptar',
+            showCancelButton: false,
+            showCloseButton: false
+          })
+          this.router.navigate(["/producto"]);
+        },
+        error => {
+          this.errorMsg = error.error;
+        }
+      )
+
   }
-    
-
-
+  
 }
