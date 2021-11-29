@@ -1,0 +1,39 @@
+<div class="section-sales">
+    <h3>Listado de clientes</h3>
+    
+    <p *ngIf="!items"><em>Loading...</em></p>
+    <div class="row">
+      <div class="col-md-offset-10 col-md-12">
+        <a class="btn btn-primary" [routerLink]="['/cliente/create']">Crear cliente</a>&nbsp;
+      </div>
+    </div>
+    <br />
+    <div class="row">
+      <div class="alert alert-danger" *ngIf="errorMsg">
+        {{errorMsg}}
+      </div>
+      <table class='table table-striped' *ngIf="items">
+        <thead>
+          <tr>
+            <th>Cedula</th>
+            <th>Nombre</th>
+            <th>Apellido</th>
+            <th>Telefono</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of items">
+            <td>{{ item.cedula }}</td>
+            <td>{{ item.nombre }}</td>
+            <td>{{ item.apellido }}</td>
+            <td>{{ item.telefono }}</td>
+            <td>
+              <a class="btn btn-warning" [routerLink]="['/cliente/', item.id, 'edit']">Editar</a>&nbsp;
+              <button class="btn btn-danger" (click)="delete(item.id)">Eliminar</button>
+    
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    </div>

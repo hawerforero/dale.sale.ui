@@ -1,0 +1,40 @@
+<div class="section-sales">
+    <h4>Crear cliente</h4>
+    <div class="alert alert-danger" *ngIf="errorMsg">
+        {{errorMsg}}
+    </div>
+    <form #formSaleCliente="ngForm" (ngSubmit)="onSubmit()" novalidate>
+
+        <div class="form-group">
+          <label>Cedula</label>
+          <input type="text" #valor="ngModel" class="form-control"  name="cedula" [(ngModel)]="modelo.cedula" required>
+          <small class="text-danger">Cedula is required</small>
+       </div>
+
+
+        <div class="form-group">
+          <label>Nombre</label>
+          <input type="text" #nombre="ngModel" class="form-control" [class.is-invalid]="nombre.invalid && nombre.touched" name="nombre" [(ngModel)]="modelo.nombre" required>
+          <small class="text-danger" [class.d-none]="nombre.valid || nombre.untouched">Nombre is required</small>
+        </div>
+
+        <div class="form-group">
+          <label>Apellido</label>
+          <input type="text" #nombre="ngModel" class="form-control"  name="apellido" [(ngModel)]="modelo.apellido" required>
+          <small class="text-danger" >Apellido is required</small>
+        </div>
+
+        <div class="form-group">
+          <label>Telefono</label>
+          <input type="text" #nombre="ngModel" class="form-control"  name="telefono" [(ngModel)]="modelo.telefono" required>
+          <small class="text-danger" >Telefono is required</small>
+        </div>
+
+
+        
+        <br>
+        <button class="btn btn-primary" [disabled]="formSaleCliente.form.invalid" type="submit">Guardar</button>
+    
+      </form>
+    
+</div>

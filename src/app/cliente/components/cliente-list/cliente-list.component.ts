@@ -1,19 +1,19 @@
 import { Component, OnInit } from '@angular/core';
-import { ProductoService } from '../../services/producto.service';
+import { ClienteService } from '../../services/cliente.service';
 import Swal from 'sweetalert2';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-producto-list',
-  templateUrl: './producto-list.component.html',
-  styleUrls: ['./producto-list.component.scss']
+  selector: 'app-cliente-list',
+  templateUrl: './cliente-list.component.html',
+  styleUrls: ['./cliente-list.component.scss']
 })
-export class ProductoListComponent implements OnInit {
+export class ClienteListComponent implements OnInit {
 
   items;
   errorMsg = '';
 
-  constructor(protected productoService: ProductoService,
+  constructor(protected service: ClienteService,
               public router: Router) {
     this.items = new Array<any>();
    }
@@ -23,7 +23,7 @@ export class ProductoListComponent implements OnInit {
   }
 
   getList() {
-    this.productoService.getAll()
+    this.service.getAll()
     .subscribe(
       (data) => {
         this.items = data;
@@ -36,7 +36,7 @@ export class ProductoListComponent implements OnInit {
 
   delete(id:string) {
     console.log(id);
-    this.productoService.delete(id)
+    this.service.delete(id)
       .subscribe(
         response => {
           Swal.fire({
@@ -47,8 +47,9 @@ export class ProductoListComponent implements OnInit {
             showCancelButton: false,
             showCloseButton: false
           })
-          this.router.navigate(["/producto"]);
+          this.router.navigate(["/cliente"]);
           this.getList();
+
         },
         error => {
           this.errorMsg = error.error;
